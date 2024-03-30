@@ -5,7 +5,7 @@
     "type": "project",
     "homepage": "https://meegbe.id/software/guavas-framework",
     "support": {
-        "source": "https://github.com/meegbe/guavasfx2",
+        "source": "https://github.com/meegbe/guavasfx2"
     },
     "require": {
         "php": "^7.4 || ^8.0",
