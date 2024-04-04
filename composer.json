@@ -1,7 +1,7 @@
 {
     "name": "meegbe/guavasfx2",
     "description": "Guavas Framework v2",
-    "license": "GNU",
+    "license": "GPL-3.0",
     "type": "project",
     "homepage": "https://meegbe.id/software/guavas-framework",
     "support": {
@@ -23,14 +23,15 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\Support\\": "tests/_support"
+            "Tests\\Support\\": "tests/example"
         }
     },
-    "config": {
-        "optimize-autoloader": true,
-        "preferred-install": "dist",
-        "sort-packages": true
-    },
+    "repositories": [
+        {
+           "type": "vcs",
+           "url": "https://github.com/meegbe/guavasfx2"
+        }
+    ],
     "scripts": {
         "test": "phpunit"
     }
