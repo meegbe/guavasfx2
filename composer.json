@@ -8,8 +8,7 @@
         "source": "https://github.com/meegbe/guavasfx2"
     },
     "require": {
-        "php": "^7.4 || ^8.0",
-        "meegbe/guavasfx2":"dev-master@dev"
+        "php": "^8.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9",

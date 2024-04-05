@@ -28,6 +28,6 @@ class mod_http
 		$indexfile = $forceindex ? $dir . '/index.php' : '';
 		$command = 'php -S ' . $ip . ':' . $port . ' '.$indexfile.' -t ' . $dir; 
 		echo "Built-in Web Server Started.\n";
-		$pid = shell_exec($command);
+		shell_exec($command);
     }
 }

@@ -90,7 +90,7 @@ class Cache
         return $counter;
 	}
 
-    protected function clearExpiredOnly()
+    public static function clearExpiredOnly()
     {
         $counter = 0;
         $cacheFiles = glob(static::cacheDir . GV_CACHE_PREFIX . '*.*');

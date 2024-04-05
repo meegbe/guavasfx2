@@ -60,13 +60,11 @@ class Router
         $this->addRoute('GET', $path, $handler);
         return $this;
     }
-
     public function post($path, $handler)
     {
         $this->addRoute('POST', $path, $handler);
         return $this;
     }
-    
     protected function stringHandler($handler, $args = [])
     {
         list($controller, $method) = array_pad(explode('@', $handler), 2, $handler);
@@ -87,12 +85,11 @@ class Router
         $result = call_user_func_array([$ctrl, $method], $args);
         return $result;
     }
-
     protected function objectHandler($handler, $args = [])
     {
-
+        $result = call_user_func($handler, $args);
+        return $result;
     }
-
     protected function runRouteCommand($command) 
     {
     	// output command
@@ -113,7 +110,6 @@ class Router
                 break;
         }
     }
-
     protected function match($resource, $curRoute)
     {
         // search route 
@@ -134,7 +130,17 @@ class Router
 
         return [$matched, $args, $route];
     }
-
+    protected function middlewarePassthru($middleware) 
+    {
+        $this->passthru = true;
+        $controller = 'App\Middleware\\'.$middleware;
+        $class = new $controller;
+        $nexthop = $class->handle($this);
+        if(!$this->passthru) {
+            $this->runRouteCommand($nexthop);
+            @exit;
+        }
+    }
     public function dispatch() 
     {
         // find match routing
